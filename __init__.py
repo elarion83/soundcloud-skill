@@ -1,5 +1,8 @@
+import re
+import requests
 from mycroft import MycroftSkill, intent_file_handler
-
+from mycroft.util.log import LOG
+from mycroft.audio.services.vlc import VlcService
 
 class Soundcloud(MycroftSkill):
     def __init__(self):
@@ -8,7 +11,7 @@ class Soundcloud(MycroftSkill):
     @intent_file_handler('soundcloud.intent')
     def handle_soundcloud(self, message):
         self.speak_dialog('soundcloud')
-  tracklist = []
+        tracklist = []
         self.vid_url = 'https://soundcloud.com/thoms-12/ebrius'
         self.stream_url = self.get_stream_url(self.vid_url)
         LOG.debug('Found stream URL: on souncdloud')
