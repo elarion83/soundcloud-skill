@@ -1,8 +1,13 @@
 import re
 import requests
-from mycroft import MycroftSkill, intent_file_handler
+import pafy
+
+
+from mycroft.skills.common_play_skill import CommonPlaySkill, CPSMatchLevel
+from mycroft.skills.core import intent_file_handler
 from mycroft.util.log import LOG
 from mycroft.audio.services.vlc import VlcService
+from mycroft.audio import wait_while_speaking
 
 class Soundcloud(MycroftSkill):
     def __init__(self):
